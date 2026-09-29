@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dabba Service System</title> 
+    <link rel="stylesheet" href="uniq.css/uniq.css">
+<body>
+
+<div class="card">
+    <h2>Dabba Booking System</h2>
+    <div class="form-group">
+        <label>Customer Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+    </div>
+    <div class="form-group">
+        <label>Meal Type:</label>
+        <select id="mealType">
+            <option value="Veg Thali - ₹80">Veg Thali - ₹80</option>
+            <option value="Special Veg Thali - ₹120">Special Veg Thali - ₹120</option>
+            <option value="Non-Veg Thali - ₹150">Non-Veg Thali - ₹150</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Subscription (Days):</label>
+        <input type="number" id="days" value="1" min="1">
+    </div>
+    <button onclick="bookDabba()">Book Order</button>
+
+    <div id="summary"></div>
+</div>
+
+<script>
+    function bookDabba() {
+        const name = document.getElementById('name').value;
+        const meal = document.getElementById('mealType').value;
+        const days = document.getElementById('days').value;
+
+        if (!name) {
+            alert('Kripya apna naam bharein!');
+            return;
+        }
+
+        const summaryDiv = document.getElementById('summary');
+        summaryDiv.style.display = 'block';
+        summaryDiv.innerHTML = `<strong>Booking Confirmed!</strong><br>
+                                Name: ${name}<br>
+                                Meal: ${meal}<br>
+                                Duration: ${days} days`;
+    }
+</script>
+
+</body>
+</html>
